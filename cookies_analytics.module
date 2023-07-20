@@ -6,14 +6,13 @@
         'page callback' => 'mi_popup_bienvenida_page',
         'access arguments' => array('access content'),
         'type' => MENU_NORMAL_ITEM,
-    );
-
-  return $items;
-}
+        );
+        console.log("Function");
+    return $items;
+    }
     function mi_popup_bienvenida_page() {
         $popup_content = '<p>Bienvenido a nuestro sitio web. ¡Gracias por visitarnos!</p>';
         $output = '<div id="mi-popup-bienvenida">' . $popup_content . '</div>';
         drupal_add_js('jQuery(document).ready(function() { jQuery("#mi-popup-bienvenida").dialog(); });', 'inline');
         return $output;
     }
-?>
