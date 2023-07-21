@@ -1,9 +1,9 @@
 <?php
     function cookies_analytics_block_info(){
-        $blocks['id-cookie'] = array{
-            'info' => t('Cookie'),
-        };
-        return $blocks;
+        // $blocks['id-cookie'] = array{
+        //     'info' => t('Cookie'),
+        // };
+        // return $blocks;
     }
     // function cookies_analytics_block_view($delta == ''){
     //     $block = array();
