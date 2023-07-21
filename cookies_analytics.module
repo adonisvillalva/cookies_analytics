@@ -5,14 +5,14 @@
         };
         return $blocks;
     }
-    function cookies_analytics_block_view($delta == ''){
-        $block = array();
-        switch{$delta}{
-            case 'id-cookie':
-                $block['content'] = cookie();
-        }
-        return $block;
-    }
-    function cookie(){
-        return '<h2>'.t('Cookie Test')'</h2>';
-    }
+    // function cookies_analytics_block_view($delta == ''){
+    //     $block = array();
+    //     switch{$delta}{
+    //         case 'id-cookie':
+    //             $block['content'] = cookie();
+    //     }
+    //     return $block;
+    // }
+    // function cookie(){
+    //     return '<h2>'.t('Cookie Test')'</h2>';
+    // }
