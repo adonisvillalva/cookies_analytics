@@ -1,18 +1,18 @@
 <?php
-    function cookies_analytics(){
-        $items = array();
-        $items['mi-popup-bienvenida'] = array(
-        'title' => 'Popup de Bienvenida',
-        'page callback' => 'mi_popup_bienvenida_page',
-        'access arguments' => array('access content'),
-        'type' => MENU_NORMAL_ITEM,
-        );
-        console.log("Function");
-    return $items;
+    function cookies_analytics_block_info(){
+        $blocks['id-cookie'] = array{
+            'info' => t('Cookie'),
+        };
+        return $blocks;
     }
-    function mi_popup_bienvenida_page() {
-        $popup_content = '<p>Bienvenido a nuestro sitio web. ¡Gracias por visitarnos!</p>';
-        $output = '<div id="mi-popup-bienvenida">' . $popup_content . '</div>';
-        drupal_add_js('jQuery(document).ready(function() { jQuery("#mi-popup-bienvenida").dialog(); });', 'inline');
-        return $output;
+    function cookies_analytics_block_view($delta == ''){
+        $block = array();
+        switch{$delta}{
+            case 'id-cookie':
+                $block['content'] = cookie();
+        }
+        return $block;
+    }
+    function cookie(){
+        return '<h2>'.t('Cookie Test')'</h2>'
     }
