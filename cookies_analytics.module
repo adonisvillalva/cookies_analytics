@@ -1,4 +1,35 @@
 <?php
+/**
+ * Múdulo desarrollado por LichKiller
+ * 24/07/2023
+**/
+    function cookies_analytics_block_init(){
+        //Verificar consentimiento
+        if(!isset($_COOKIE['cookies_analytics_consent'])){
+            //Cargar librerias
+            libraries_load('ui.core');
+            //Agregar dependencias para visualizar el PopUp
+            drupal_add_js(drupal_get_path('module','cookies_analytics').'/js/popup.js');
+            drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
+        }
+    }
+    //Hook Menu
+    function cookies_analytics_menu(){
+        $items = array();
+        //Ruta para almacenar la aceptación mediante Ajax
+        $items['cookies-analytics/accept'] = array(
+            'page callback' => 'cookies_analytics_accept',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        );
+        return $items;
+    }
+    //Callback para almacenar desicion de usuario con AJAX
+    function cookies_analytics_accept(){
+        //Establece cookie para recordar la desicion del usuario
+        setcookie('cookies_analytics_consent','true', time() + (30 * 24 * 60 * 60), '/');
+        return '';        
+    }
     function cookies_analytics_block_info(){
         $blocks['id-cookie'] = array(
              'info' => t('Cookie'),
