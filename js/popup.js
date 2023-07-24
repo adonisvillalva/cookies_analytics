@@ -3,7 +3,6 @@
       // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
       if (!Drupal.settings.cookies_analytics_consent) {
         // Crea una ventana emergente con el botón aceptar.
-        console.log("Se ejecta.")
         var popUpContent = '<div class="cookie_analytics_popup">' +
                            '<p>Este sitio funciona con cookies. ¿Deseas permitir?</p>' +
                            '<button id="cookie_analytics_btn">Aceptar</button></div>';
@@ -25,5 +24,5 @@
         });
       }
     });
-  })(jQuery);
+})(jquery);
   
