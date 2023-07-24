@@ -24,8 +24,7 @@ function cookies_analytics_block_info() {
         drupal_add_library('system', 'ui.dialog');
   
         // Agrega el CSS y el JS para mostrar el popup de bienvenida.
-        drupal_add_css(drupal_get_path('module', 'cookies_analytics') . '/css/popup.css');
-        drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
+        $form['#attached'] = drauta_get_attached();
   
         // Crea el contenido del popup de bienvenida.
         $popup_content =    '<div id="cookie_analytics_popup">' .
@@ -62,4 +61,13 @@ function cookies_analytics_block_info() {
     // Establece una cookie para recordar la visita del usuario.
     setcookie('cookies_analytics_visited', 'true', time() + (365 * 24 * 60 * 60), '/');
     return '';
+  }
+  function drauta_get_attached() {
+    $result = array();
+    $cur_path = drupal_get_path('module', 'cookies_analytics');
+  
+    $result['js']['cookies_analytics'] = $cur_path . '/js/popup.js';
+    $result['css']['cookies_analytics'] = $cur_path . '/css/popup.css';
+  
+    return $result;
   }
