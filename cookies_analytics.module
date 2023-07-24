@@ -3,7 +3,7 @@
  * Múdulo desarrollado por LichKiller
  * 24/07/2023
 **/
-    function cookies_analytics_block_init(){
+    function cookies_analytics_init(){
         console.log("verificacion de funcionalidad");
         //Verificar consentimiento
         if(!isset($_COOKIE['cookies_analytics_consent'])){
