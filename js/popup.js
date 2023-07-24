@@ -17,7 +17,7 @@
           $.ajax({
             url: '/cookie_analytics/accept',
             success: function() {
-              // Recarga la página
+              // Recarga la página web
               location.reload();
             }
           });
