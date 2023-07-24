@@ -4,7 +4,7 @@ function cookies_analytics_block_info() {
   
     // Define el bloque de popup.
     $blocks['cookies_analytics'] = array(
-      'info' => t('Popup de bienvenida'),
+      'info' => t('Cookie Analytics'),
       'cache' => DRUPAL_NO_CACHE, // Evita el caché del bloque.
     );
   
@@ -28,9 +28,9 @@ function cookies_analytics_block_info() {
         drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
   
         // Crea el contenido del popup de bienvenida.
-        $popup_content = '<div id="cookies_analytics">' .
-                         '<p>Bienvenido a nuestro sitio web. ¡Gracias por visitarnos!</p>' .
-                         '<button id="mi-modulo-popup-close-btn">Cerrar</button></div>';
+        $popup_content =    '<div id="cookie_analytics_popup">' .
+                            '<p>Este sitio utiliza cookies y Google Analytics para mejorar tu experiencia. ¿Aceptas el uso de cookies y el análisis de datos por Google Analytics?</p>' .
+                            '<button id="cookie_analytics_aceptar_btn">Aceptar</button></div>';
   
         $block['content'] = $popup_content;
       }
@@ -46,8 +46,8 @@ function cookies_analytics_block_info() {
     $items = array();
   
     // Ruta para almacenar la visita del usuario mediante Ajax.
-    $items['cookies-analytics/visited'] = array(
-      'page callback' => 'cookies_analytics_visited',
+    $items['cookies-analytics/aceptar'] = array(
+      'page callback' => 'cookies_analytics_aceptar',
       'access arguments' => array('access content'),
       'type' => MENU_CALLBACK,
     );
@@ -63,37 +63,3 @@ function cookies_analytics_block_info() {
     setcookie('cookies_analytics_visited', 'true', time() + (365 * 24 * 60 * 60), '/');
     return '';
   }
-//     function cookies_analytics_init(){
-//         //Verificar consentimiento
-//         drupal_add_library('system', 'ui.core');
-//             drupal_add_library('system', 'ui.dialog');
-//             //Agregar dependencias para visualizar el PopUp
-//             drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
-//             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
-//         if(!isset($_COOKIE['cookies_analytics_consent'])){
-//             //Cargar librerias
-//             // Cargar la librería de jQuery.
-//             drupal_add_library('system', 'ui.core');
-//             drupal_add_library('system', 'ui.dialog');
-//             //Agregar dependencias para visualizar el PopUp
-//             drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
-//             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
-//         }
-//     }
-//     //Hook Menu
-//     function cookies_analytics_menu(){
-//         $items = array();
-//         //Ruta para almacenar la aceptación mediante Ajax
-//         $items['cookies-analytics/accept'] = array(
-//             'page callback' => 'cookies_analytics_accept',
-//             'access arguments' => array('access content'),
-//             'type' => MENU_CALLBACK,
-//         );
-//         return $items;
-//     }
-//     //Callback para almacenar desicion de usuario con AJAX
-//     function cookies_analytics_accept(){
-//         //Establece cookie para recordar la desicion del usuario
-//         setcookie('cookies_analytics_consent','true', time() + (30 * 24 * 60 * 60), '/');
-//         return '';        
-//     }
