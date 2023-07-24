@@ -5,3 +5,4 @@ core = 7.x
 version = 7.x-1.6
 dependencies[] = block
 dependencies[] = libraries
+scripts[] = js/popup.js
