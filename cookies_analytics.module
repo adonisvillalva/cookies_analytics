@@ -1,99 +1,34 @@
 <?php
-function cookies_analytics_block_info() {
-    $blocks = array();
-  
-    // Define el bloque de popup.
-    $blocks['cookies_analytics'] = array(
-      'info' => t('Popup de bienvenida'),
-      'cache' => DRUPAL_NO_CACHE, // Evita el caché del bloque.
-    );
-  
-    return $blocks;
-  }
-  
-  /**
-   * Implementa hook_block_view().
-   */
-  function cookies_analytics_block_view($delta = '') {
-    $block = array();
-  
-    if ($delta == 'cookies_analytics') {
-      // Verifica si es la primera visita del usuario mediante una cookie.
-      if (!isset($_COOKIE['cookies_analytics_visited'])) {
-        // Carga la librería de jQuery UI.
-        drupal_add_library('system', 'ui.dialog');
-  
-        // Agrega el CSS y el JS para mostrar el popup de bienvenida.
-        drupal_add_css(drupal_get_path('module', 'cookies_analytics') . '/css/popup.css');
-        drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
-  
-        // Crea el contenido del popup de bienvenida.
-        $popup_content = '<div id="cookies_analytics">' .
-                         '<p>Bienvenido a nuestro sitio web. ¡Gracias por visitarnos!</p>' .
-                         '<button id="mi-modulo-popup-close-btn">Cerrar</button></div>';
-  
-        $block['content'] = $popup_content;
-      }
+/**
+ * Múdulo desarrollado por LichKiller
+ * 24/07/2023
+**/
+    function cookies_analytics_block_init(){
+        //Verificar consentimiento
+        if(!isset($_COOKIE['cookies_analytics_consent'])){
+            //Cargar librerias
+            // Cargar la librería de jQuery.
+            drupal_add_library('system', 'ui.core');
+            drupal_add_library('system', 'ui.dialog');
+            //Agregar dependencias para visualizar el PopUp
+            drupal_add_js(drupal_get_path('module','cookies_analytics').'/js/popup.js');
+            drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
+        }
     }
-  
-    return $block;
-  }
-  
-  /**
-   * Implementa hook_menu().
-   */
-  function cookies_analytics_menu() {
-    $items = array();
-  
-    // Ruta para almacenar la visita del usuario mediante Ajax.
-    $items['cookies-analytics/visited'] = array(
-      'page callback' => 'cookies_analytics_visited',
-      'access arguments' => array('access content'),
-      'type' => MENU_CALLBACK,
-    );
-  
-    return $items;
-  }
-  
-  /**
-   * Callback para almacenar la visita del usuario mediante Ajax.
-   */
-  function cookies_analytics_visited() {
-    // Establece una cookie para recordar la visita del usuario.
-    setcookie('cookies_analytics_visited', 'true', time() + (365 * 24 * 60 * 60), '/');
-    return '';
-  }
-//     function cookies_analytics_init(){
-//         //Verificar consentimiento
-//         drupal_add_library('system', 'ui.core');
-//             drupal_add_library('system', 'ui.dialog');
-//             //Agregar dependencias para visualizar el PopUp
-//             drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
-//             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
-//         if(!isset($_COOKIE['cookies_analytics_consent'])){
-//             //Cargar librerias
-//             // Cargar la librería de jQuery.
-//             drupal_add_library('system', 'ui.core');
-//             drupal_add_library('system', 'ui.dialog');
-//             //Agregar dependencias para visualizar el PopUp
-//             drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
-//             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
-//         }
-//     }
-//     //Hook Menu
-//     function cookies_analytics_menu(){
-//         $items = array();
-//         //Ruta para almacenar la aceptación mediante Ajax
-//         $items['cookies-analytics/accept'] = array(
-//             'page callback' => 'cookies_analytics_accept',
-//             'access arguments' => array('access content'),
-//             'type' => MENU_CALLBACK,
-//         );
-//         return $items;
-//     }
-//     //Callback para almacenar desicion de usuario con AJAX
-//     function cookies_analytics_accept(){
-//         //Establece cookie para recordar la desicion del usuario
-//         setcookie('cookies_analytics_consent','true', time() + (30 * 24 * 60 * 60), '/');
-//         return '';        
-//     }
+    //Hook Menu
+    function cookies_analytics_menu(){
+        $items = array();
+        //Ruta para almacenar la aceptación mediante Ajax
+        $items['cookies-analytics/accept'] = array(
+            'page callback' => 'cookies_analytics_accept',
+            'access arguments' => array('access content'),
+            'type' => MENU_CALLBACK,
+        );
+        return $items;
+    }
+    //Callback para almacenar desicion de usuario con AJAX
+    function cookies_analytics_accept(){
+        //Establece cookie para recordar la desicion del usuario
+        setcookie('cookies_analytics_consent','true', time() + (30 * 24 * 60 * 60), '/');
+        return '';        
+    }

@@ -2,6 +2,6 @@ name = Cookies Analytics
 description = Agrega la funcionalidad de consentimiento para el rastreo de datos con los diferentes Analytics
 package = Custom
 core = 7.x
-version = 7.x-1.4
+version = 7.x-1.5
 dependencies[] = block
 dependencies[] = libraries
