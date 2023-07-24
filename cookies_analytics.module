@@ -7,7 +7,7 @@
         //Verificar consentimiento
         if(!isset($_COOKIE['cookies_analytics_consent'])){
             //Cargar librerias
-            libraries_load('ui.core');
+            drupal_add_library('system', 'ui.core');
             //Agregar dependencias para visualizar el PopUp
             drupal_add_js(drupal_get_path('module','cookies_analytics').'/js/popup.js');
             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
@@ -29,24 +29,4 @@
         //Establece cookie para recordar la desicion del usuario
         setcookie('cookies_analytics_consent','true', time() + (30 * 24 * 60 * 60), '/');
         return '';        
-    }
-    function cookies_analytics_block_info(){
-        $blocks['id-cookie'] = array(
-             'info' => t('Cookie'),
-        );
-        return $blocks;
-    }
-    function cookies_analytics_block_view($delta = ''){
-        $block = array();
-        switch ($delta){
-             case 'id-cookie':
-                 $block['subject'] = t('Bienvenido/a');
-                 $block['content'] = cookie();
-                 break;
-        }
-        return $block;
-    }
-    function cookie(){
-        $message = '<h2>Bienvenido</h2>';
-        return $message;
     }
