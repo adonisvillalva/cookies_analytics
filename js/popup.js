@@ -1,8 +1,8 @@
 (function ($) {
     $(document).ready(function() {
-      console.log("test");
       // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
       if (!Drupal.settings.cookies_analytics_consent) {
+        console.log("test");
         // Crea una ventana emergente con el botón aceptar.
         var popUpContent = '<div class="cookie_analytics_popup">' +
                            '<p>Este sitio funciona con cookies. ¿Deseas permitir?</p>' +
