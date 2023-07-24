@@ -7,7 +7,9 @@
         //Verificar consentimiento
         if(!isset($_COOKIE['cookies_analytics_consent'])){
             //Cargar librerias
+            // Cargar la librería de jQuery.
             drupal_add_library('system', 'ui.core');
+            drupal_add_library('system', 'ui.dialog');
             //Agregar dependencias para visualizar el PopUp
             drupal_add_js(drupal_get_path('module','cookies_analytics').'/js/popup.js');
             drupal_add_css(drupal_get_path('module','cookies_analytics').'/css/popup.css');
