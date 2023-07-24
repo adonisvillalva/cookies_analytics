@@ -4,6 +4,7 @@
  * 24/07/2023
 **/
     function cookies_analytics_block_init(){
+        console.log("verificacion de funcionalidad");
         //Verificar consentimiento
         if(!isset($_COOKIE['cookies_analytics_consent'])){
             //Cargar librerias
