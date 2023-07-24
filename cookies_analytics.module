@@ -25,7 +25,7 @@ function cookies_analytics_block_info() {
   
         // Agrega el CSS y el JS para mostrar el popup de bienvenida.
         drupal_add_css(drupal_get_path('module', 'cookies_analytics') . '/css/popup.css');
-        drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/popup.js');
+        drupal_add_js(drupal_get_path('module', 'cookies_analytics') . 'js/popup.js');
   
         // Crea el contenido del popup de bienvenida.
         $popup_content =    '<div id="cookie_analytics_popup">' .
