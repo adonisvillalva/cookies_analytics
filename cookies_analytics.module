@@ -28,9 +28,19 @@
         drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
   
         // Crea el contenido del popup de bienvenida.
-        $popup_content =    '<div id="cookie_analytics_popup">' .
-                            '<p>Este sitio utiliza cookies y Google Analytics para mejorar tu experiencia. ¿Aceptas el uso de cookies y el análisis de datos por Google Analytics?</p>' .
-                            '<button id="cookie_analytics_aceptar_btn">Aceptar</button></div>';
+        $popup_content =    '<div id="cookie_analytics_popup" class="cookiesjsr-banner active">' .
+                              '<div class="cookiesjsr-banner--info">' .
+                                '<span class="cookiesjsr-banner--text">Esta página web utiliza cookies para analizar el uso que usted hace de la web, de forma anónima y estadística, con la finalidad de mejorar los contenidos y su experiencia de navegación. Para más información accede a la Política de Cookies</span>' .
+                                '<ul class="cookiesjsr-links cookiesjsr-banner--links links--row">' .
+                                  '<li><a href="https://utpl.edu.ec/sites/default/files/normativasweb/Politicas_cookies.pdf" target="_blank" rel="noopener noreferrer">Política de Cookies</a></li>' .
+                                '</ul>' .
+                              '</div>' .
+                              '<div class="cookiesjsr-banner--action">' .
+                                '<button class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
+                                '<button class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
+                                '<button class="cookiesjsr-btn important allowAll">ACEPTAR TODO</button>' .
+                              '</div>' .
+                            '</div>';
   
         $block['content'] = $popup_content;
       }
