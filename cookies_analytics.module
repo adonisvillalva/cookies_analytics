@@ -1,5 +1,5 @@
 <?php
-function cookies_analytics_block_info() {
+  function cookies_analytics_block_info() {
     $blocks = array();
   
     // Define el bloque de popup.
