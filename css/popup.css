@@ -2,7 +2,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    height: auto;
     max-height: calc(100vh - 100px);
     overflow: auto;
     padding: 1em;
@@ -13,84 +14,114 @@
     z-index: 10000;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box;
     transform: translateY(0);
 }
 
-#cookie_analytics_popup .cookiesjsr-banner--info {
-    flex-grow: 1;
-    max-width: 50%;
+#cookie_analytics_popup .cookiesjsr-banner--content {
+    display: flex;
+    width: 100%;
 }
 
-#cookie_analytics_popup .cookiesjsr-banner--info .cookiesjsr-banner--text {
-    margin-bottom: 10px;
-    justify-content: center;
-    align-items: center;
-    /* Espacio entre el texto y el link de políticas */
+#cookie_analytics_popup .cookiesjsr-banner--info {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 #cookie_analytics_popup .cookiesjsr-banner--action {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    /* Alinear los botones a la derecha */
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    /* Centrar verticalmente los botones */
+}
+
+@media screen and (max-width: 767px) {
+    #cookie_analytics_popup {
+        flex-direction: column;
+        /* Cambiar la dirección de flex a columna */
+        align-items: center;
+        /* Alinear los elementos al centro en dirección columna */
+    }
+
+    #cookie_analytics_popup .cookiesjsr-banner--content {
+        flex-direction: column;
+        /* Cambiar la dirección de flex a columna */
+    }
+
+    #cookie_analytics_popup .cookiesjsr-banner--info {
+        margin-bottom: 10px;
+        /* Agregar un margen inferior para separar los elementos */
+    }
+}
+
+@media screen and (max-width: 1115px) {
+    #cookie_analytics_popup .cookiesjsr-banner--action {
+        flex-direction: column;
+        align-items: center;
+        /* Ajustar los elementos al centro en dirección columna */
+    }
 }
 
 #cookie_analytics_popup .cookiesjsr-banner--action button {
-    margin-left: 5px;
-}
-
-#cookie_analytics_popup .cookiesjsr-links {
-    margin: 0;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    background-color: var(--banner-bg-color, #004c93);
+    border: 2px solid var(--btn-border-color, #fff);
+    color: var(--btn-font-color, #fff);
+    display: flex;
+    font: inherit;
+    font-size: .85em;
+    justify-content: center;
+    margin: 0.625em;
+    opacity: .95;
     padding: 0;
-    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: scale(1);
+    transition: all .3s ease;
+    white-space: nowrap;
+    width: calc(100% - 2.5em);
 }
 
-#cookie_analytics_popup .cookiesjsr-links li {
-    display: inline;
+#cookie_analytics_popup .cookiesjsr-btn.important {
+    background-color: var(--btn-prime-bg-color, #fff);
+    border-color: var(--btn-prime-border-color, #fff);
+    color: #004c93;
+    color: var(--btn-prime-font-color, #004c93);
 }
 
 #cookie_analytics_popup .cookiesjsr-links a {
     color: var(--banner-font-color, #fff);
     text-decoration: none;
-    border-bottom: 1px solid var(--banner-font-color, #fff);
     margin-right: 10px;
-    /* Espacio entre el link de políticas y los botones */
 }
 
-/* Estilos para pantallas más pequeñas (por ejemplo, smartphones) */
-@media (max-width: 768px) {
-    #cookie_analytics_popup {
-        font-size: 14px;
-    }
+
+#cookie_analytics_popup .cookiesjsr-banner--text {
+    display: block;
+    margin-bottom: 30px;
 }
 
-#cookie_analytics_popup .cookiesjsr-action-btns button {
-    margin-left: 5px;
+
+#cookie_analytics_popup .cookiesjsr-links {
+    margin-top: 0.5em;
+    font-size: .85em;
+    padding: 0;
+    justify-content: left;
 }
 
-/* Estilos adicionales para el botón al pasar el cursor por encima */
+#cookie_analytics_popup .cookiesjsr-links li {
+    display: inline;
+    text-decoration: none;
+}
+
+/* Estilos adisionales al pasar el cursor por encima de los botones*/
 #cookie_analytics_popup .cookiesjsr-btn:hover {
-    background-color: var(--bs-primary, #0d6efd);
-}
-
-#cookie_analytics_popup .important:hover {
-    background-color: var(--bs-white, #fff);
-    color: var(--bs-primary, #0d6efd);
-    border: 1px solid var(--bs-white, #fff);
-}
-
-#cookie_analytics_popup .denyAll:hover {
-    background-color: var(--bs-primary, #0d6efd);
-    color: var(--bs-white, #fff);
-    border: 1px solid var(--bs-primary, #0d6efd);
-}
-
-#cookie_analytics_popup .allowAll:hover {
-    background-color: var(--bs-white, #fff);
-    color: var(--bs-primary, #0d6efd);
-    border: 1px solid var(--bs-white, #fff);
+    transform: scale(1.02);
 }
