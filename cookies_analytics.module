@@ -28,22 +28,107 @@
         drupal_add_js(drupal_get_path('module', 'cookies_analytics') . '/js/popup.js');
   
         // Crea el contenido del popup de bienvenida.
-        $popup_content = '<div id="cookie_analytics_popup" class="cookiesjsr-banner active">' .
-                          '<div class="cookiesjsr-banner--content">' .
-                            '<div class="cookiesjsr-banner--info">' .
-                              '<span class="cookiesjsr-banner--text">Esta página web utiliza cookies para analizar el uso que usted hace de la web, de forma anónima y estadística, con la finalidad de mejorar los contenidos y su experiencia de navegación. Para más información accede a la Política de Cookies</span>' .
-                              '<ul class="cookiesjsr-links">' .
-                                '<li><a href="https://utpl.edu.ec/sites/default/files/normativasweb/Politicas_cookies.pdf" target="_blank" rel="noopener noreferrer">Política de Cookies</a></li>' .
-                              '</ul>' .
+        $popup_content = 
+                '<div id="cookie_analytics_popup" class="cookiesjsr-banner active">' .
+                  '<div class="cookiesjsr-banner--content">' .
+                    '<div class="cookiesjsr-banner--info">' .
+                      '<span class="cookiesjsr-banner--text">Esta página web utiliza cookies para analizar el uso que usted hace de la web, de forma anónima y estadística, con la finalidad de mejorar los contenidos y su experiencia de navegación. Para más información accede a la Política de Cookies</span>' .
+                      '<ul class="cookiesjsr-links">' .
+                        '<li><a href="https://utpl.edu.ec/sites/default/files/normativasweb/Politicas_cookies.pdf" target="_blank" rel="noopener noreferrer">Política de Cookies</a></li>' .
+                      '</ul>' .
+                    '</div>' .
+                    '<div class="cookiesjsr-banner--action">' .
+                      '<button class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
+                      '<button class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
+                      '<button id="cookie_analytics_aceptar_btn" class="cookiesjsr-btn important allowAll">ACEPTAR TODO</button>' .
+                    '</div>' .
+                  '</div>' .
+                '</div>' .
+                '<div class="modal-container">' .
+                  '<div class="cookiesjsr-layer">' .
+                    '<header class="cookiesjsr-layer--header">' .
+                      '<span id="cookiesjsrLabel" class="cookiesjsr-layer--title">Configuración de Cookies</span>' .
+                      '<button type="button" class="cookiesjsr-layer--close dialog-first-tab">' .
+                        '✖️' .
+                      '</button>' .
+                    '</header>' .
+                    '<div class="cookiesjsr-layer--body">' .
+                      '<ul class="cookiesjsr-service-groups" role="tablist" aria-label="Configuración de Cookies">' .
+                        '<li class="cookiesjsr-service-group active">' .
+                          '<button class="cookiesjsr-service-group--tab" role="tab" aria-selected="true" tabindex="0"' .
+                            'aria-controls="panel-default" id="tab-default">' .
+                            '¿Qué son las cookies?' .
+                          '</button>' .
+                          '<div class="cookiesjsr-service-group--content" id="panel-default" role="tabpanel"' .
+                            'aria-labelledby="tab-default">' .
+                            '<div class="cookiesjsr-service-group--intro">' .
+                              'Las cookies son pequeños archivos de texto que los sitios web' .
+                              'almacenan en su computadora, celular inteligente (Smartphone),' .
+                              'Tablet o cualquier otro dispositivo de acceso a Internet, a' .
+                              'fin de recopilar cierta información sobre su experiencia de' .
+                              'navegación y sobre sus preferencias. Las cookies no pueden' .
+                              'dañar su dispositivo y además son muy útiles, puesto que nos' .
+                              'ayudan a identificar y resolver errores.' .
                             '</div>' .
-                            '<div class="cookiesjsr-banner--action">' .
-                              '<button class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
-                              '<button class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
-                              '<button id="cookie_analytics_aceptar_btn" class="cookiesjsr-btn important allowAll">ACEPTAR TODO</button>' .
-                            '</div>' .
+                            '<ul class="cookiesjsr-service-group--services">' .
+                              '<li class="cookiesjsr-service group-default">' .
+                                '<div class="cookiesjsr-service--description">' .
+                                  '<h3 id="desc_default">Cookies requeridas</h3>' .
+                                  '<ul class="cookiesjsr-links cookiesjsr-service--links links--row">' .
+                                    '<li>' .
+                                      '<a href="https://utpl.edu.ec/sites/default/files/normativasweb/Politicas_cookies.pdf#default"' .
+                                        'target="_blank" rel="noopener noreferrer">Política de Cookies</a>' .
+                                    '</li>' .
+                                  '</ul>' .
+                                '</div>' .
+                                '<div class="cookiesjsr-service--action">' .
+                                  '<div class="cookiesjsr-service--always-on">' .
+                                    '<span>Siempre activo</span>' .
+                                  '</div>' .
+                                '</div>' .
+                              '</li>' .
+                            '</ul>' .
                           '</div>' .
-                        '</div>';
-  
+                        '</li>' .
+                        '<li class="cookiesjsr-service-group ">' .
+                          '<button class="cookiesjsr-service-group--tab" role="tab" aria-selected="false" tabindex="-1"' .
+                            'aria-controls="panel-tracking" id="tab-tracking">Google' .
+                            'Analytics</button>' .
+                          '<div class="cookiesjsr-service-group--content" id="panel-tracking" role="tabpanel"' .
+                            'aria-labelledby="tab-tracking" hidden="">' .
+                            '<div class="cookiesjsr-service-group--intro"></div>' .
+                            '<ul class="cookiesjsr-service-group--services">' .
+                              '<li class="cookiesjsr-service group-tracking">' .
+                                '<div class="cookiesjsr-service--description">' .
+                                  '<h3 id="desc_tracking">Google Analytics</h3>' .
+                                  '<ul class="cookiesjsr-links cookiesjsr-service--links links--row">' .
+                                    '<li><a href="https://utpl.edu.ec/sites/default/files/normativasweb/Politicas_cookies.pdf#tracking"' .
+                                        'target="_blank" rel="noopener noreferrer">Política de Cookies</a></li>' .
+                                  '</ul>' .
+                                '</div>' .
+                                '<div class="cookiesjsr-service--action"><label class="cookiesjsr-switch active" title="Denegar"><input' .
+                                    'type="checkbox" aria-describedby="desc_tracking"></label></div>' .
+                              '</li>' .
+                            '</ul>' .
+                          '</div>' .
+                        '</li>' .
+                        '<!-- Agregar más grupos de servicios según necesidades -->' .
+                      '</ul>' .
+                    '</div>' .
+                    '<footer class="cookiesjsr-layer--footer">' .
+                      '<div class="cookiesjsr-layer--label-all"></div>' .
+                      '<div class="cookiesjsr-layer--actions">' .
+                        '<!-- Botones de acciones para el modal -->' .
+                        '<button class="cookiesjsr-btn invert denyAll">DENEGAR TODO</button>' .
+                        '<button class="cookiesjsr-btn invert allowAll">ACEPTAR TODO</button>' .
+                        '<button class="cookiesjsr-btn invert important save dialog-last-tab">' .
+                          'Guardar' .
+                        '</button>' .
+                      '</div>' .
+                    '</footer>' .
+                  '</div>' .
+                '</div>';
+
         $block['content'] = $popup_content;
       }
     }
