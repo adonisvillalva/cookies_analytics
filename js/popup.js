@@ -32,6 +32,17 @@
         modal.style.display = "none";
         localStorage.setItem('cookieConsent', 'true');
       });
+      // Para aceptar el rastreo
+      $("#cookie_analytics_aceptar_btn").click(function () {
+        // Al aceptar, se oculta la ventana emergente
+        $("#cookie_analytics_popup").fadeOut();
+        popup.style.display = "none";
+        modal.style.display = "none";
+        localStorage.setItem('cookieConsent', 'true');
+        if (typeof gtag === 'function') {
+          gtag('config', 'G-YVRL8S5KS5');
+        }
+      });
       
     }else{
       modal.style.display = "none";
