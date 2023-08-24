@@ -1,15 +1,18 @@
 (function ($) {
   $(document).ready(function () {
     // Variables
-    var modal = document.querySelector(".modal-container");
+    var popup       = document.querySelector("#cookie_analytics_popup");
+    var modal       = document.querySelector(".modal-container");
+    var closeButton = document.querySelector(".cookiesjsr-layer--close");
+
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
-    if (!Drupal.settings.cookies_analytics_consent) {
+    if (Drupal.settings.cookies_analytics_consent) {
       // Modal -->
       //Código para controlar la configuración de cookies
+      modal.style.display = "none";
       $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
       });
-      var closeButton = document.querySelector(".cookiesjsr-layer--close");
       closeButton.onclick = function () {
         modal.style.display = "none";
       };
@@ -35,6 +38,9 @@
         });
       });
       
+    }else{
+      modal.style.display = "none";
+      popup.style.display = "none";
     }
     var tabs = document.querySelectorAll(".cookiesjsr-service-group--tab");
     var contents = document.querySelectorAll(
