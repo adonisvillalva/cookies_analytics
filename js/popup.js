@@ -1,10 +1,11 @@
 (function ($) {
   $(document).ready(function () {
     // Variables
-    var cookieLocal = localStorage.getItem('cookieConsent');
-    var popup       = document.querySelector("#cookie_analytics_popup");
-    var modal       = document.querySelector(".modal-container");
-    var closeButton = document.querySelector(".cookiesjsr-layer--close");
+    var cookieLocal       = localStorage.getItem('cookieConsent');
+    var popup             = document.querySelector("#cookie_analytics_popup");
+    var modal             = document.querySelector(".modal-container");
+    var closeButton       = document.querySelector(".cookiesjsr-layer--close");
+    var googleAnalyticsID = 'G-YVRL8S5KS5';
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
       // Modal -->
@@ -39,9 +40,10 @@
         popup.style.display = "none";
         modal.style.display = "none";
         localStorage.setItem('cookieConsent', 'true');
-        if (typeof gtag === 'function') {
-          gtag('config', 'G-YVRL8S5KS5');
-        }
+        var gaScript = document.createElement('script');
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
+        gaScript.async = true;
+        document.head.appendChild(gaScript);
       });
       
     }else{
