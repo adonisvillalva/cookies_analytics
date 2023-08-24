@@ -72,9 +72,28 @@
       modal.style.display = "none";
       popup.style.display = "none";
       if(googleTrack){
-        var gaScript = document.createElement('script');
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
-        gaScript.async = true;
+        (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          (i[r] =
+            i[r] ||
+            function() {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          'script',
+          'https://www.googletagmanager.com/gtag/js?id=G-YVRL8S5KS5',
+          'ga'
+        );
+
+        ga('create', 'G-YVRL8S5KS5', 'auto');
+        ga('send', 'pageview');
       }
     }
     var tabs = document.querySelectorAll(".cookiesjsr-service-group--tab");
