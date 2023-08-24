@@ -71,7 +71,7 @@
     }else{
       modal.style.display = "none";
       popup.style.display = "none";
-      if(googleConsent){
+      if(googleTrack){
         var gaScript = document.createElement('script');
         gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
         gaScript.async = true;
