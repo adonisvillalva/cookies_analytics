@@ -38,7 +38,7 @@
                       '</ul>' .
                     '</div>' .
                     '<div class="cookiesjsr-banner--action">' .
-                      '<button class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
+                      '<button id="cookies_analytics_conf"class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
                       '<button class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
                       '<button id="cookie_analytics_aceptar_btn" class="cookiesjsr-btn important allowAll">ACEPTAR TODO</button>' .
                     '</div>' .
@@ -62,13 +62,7 @@
                           '<div class="cookiesjsr-service-group--content" id="panel-default" role="tabpanel"' .
                             'aria-labelledby="tab-default">' .
                             '<div class="cookiesjsr-service-group--intro">' .
-                              'Las cookies son pequeños archivos de texto que los sitios web' .
-                              'almacenan en su computadora, celular inteligente (Smartphone),' .
-                              'Tablet o cualquier otro dispositivo de acceso a Internet, a' .
-                              'fin de recopilar cierta información sobre su experiencia de' .
-                              'navegación y sobre sus preferencias. Las cookies no pueden' .
-                              'dañar su dispositivo y además son muy útiles, puesto que nos' .
-                              'ayudan a identificar y resolver errores.' .
+                              'Las cookies son pequeños archivos de texto que los sitios web almacenan en su computadora, celular inteligente (Smartphone), Tablet o cualquier otro dispositivo de acceso a Internet, a fin de recopilar cierta información sobre su experiencia de navegación y sobre sus preferencias. Las cookies no pueden dañar su dispositivo y además son muy útiles, puesto que nos ayudan a identificar y resolver errores.' .
                             '</div>' .
                             '<ul class="cookiesjsr-service-group--services">' .
                               '<li class="cookiesjsr-service group-default">' .
@@ -92,8 +86,7 @@
                         '</li>' .
                         '<li class="cookiesjsr-service-group ">' .
                           '<button class="cookiesjsr-service-group--tab" role="tab" aria-selected="false" tabindex="-1"' .
-                            'aria-controls="panel-tracking" id="tab-tracking">Google' .
-                            'Analytics</button>' .
+                            'aria-controls="panel-tracking" id="tab-tracking">Google Analytics</button>' .
                           '<div class="cookiesjsr-service-group--content" id="panel-tracking" role="tabpanel"' .
                             'aria-labelledby="tab-tracking" hidden="">' .
                             '<div class="cookiesjsr-service-group--intro"></div>' .

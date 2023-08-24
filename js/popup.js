@@ -2,6 +2,22 @@
   $(document).ready(function () {
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!Drupal.settings.cookies_analytics_consent) {
+      // Modal -->
+      //Código para controlar la configuración de cookies
+      $("cookies_analytics_conf").click(function(){
+        var modal = document.querySelector(".modal-container");
+        modal.style.display = "block";
+      });
+      var closeButton = document.querySelector(".cookiesjsr-layer--close");
+      closeButton.onclick = function () {
+        modal.style.display = "none";
+      };
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+      // <-- Modal
       // Agrega efecto Fade in
       $("#cookie_analytics_popup").fadeIn();
       // Captura el clic Aceptar
@@ -17,23 +33,8 @@
           },
         });
       });
+      
     }
-
-    //Codigo para el modal
-    var modal = document.querySelector(".modal-container");
-    modal.style.display = "block";
-
-    var closeButton = document.querySelector(".cookiesjsr-layer--close"); // Corregir la clase aquí
-    closeButton.onclick = function () {
-      modal.style.display = "none";
-    };
-
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-
     var tabs = document.querySelectorAll(".cookiesjsr-service-group--tab");
     var contents = document.querySelectorAll(
       ".cookiesjsr-service-group--content"
