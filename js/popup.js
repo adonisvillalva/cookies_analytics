@@ -1,12 +1,12 @@
 (function ($) {
   $(document).ready(function () {
     // Variables
+    var cookieLocal = localStorage.getItem('cookieConsent');
     var popup       = document.querySelector("#cookie_analytics_popup");
     var modal       = document.querySelector(".modal-container");
     var closeButton = document.querySelector(".cookiesjsr-layer--close");
-
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
-    if (!Drupal.settings.cookies_analytics_consent) {
+    if (!cookieLocal) {
       // Modal -->
       //Código para controlar la configuración de cookies
       modal.style.display = "none";
@@ -30,14 +30,7 @@
         $("#cookie_analytics_popup").fadeOut();
         popup.style.display = "none";
         modal.style.display = "none";
-        // Realiza una llamada Ajax para almacenar el consentimiento.
-        $.ajax({
-          url: "/cookies-analytics/aceptar",
-          success: function () {
-            // Recarga la página web
-            location.reload();
-          },
-        });
+        localStorage.setItem('cookieConsent', 'true');
       });
       
     }else{

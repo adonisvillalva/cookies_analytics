@@ -10,7 +10,6 @@
   
     return $blocks;
   }
-  
   /**
    * Implementa hook_block_view().
    */
