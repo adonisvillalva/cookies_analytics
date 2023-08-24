@@ -6,6 +6,7 @@
     var modal             = document.querySelector(".modal-container");
     var closeButton       = document.querySelector(".cookiesjsr-layer--close");
     var googleAnalyticsID = 'G-YVRL8S5KS5';
+    var googleTrack       = localStorage.getItem('googleConsent');
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
       // Modal -->
@@ -44,11 +45,17 @@
         gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
         gaScript.async = true;
         document.head.appendChild(gaScript);
+        localStorage.setItem('googleConsent', 'true');
       });
       
     }else{
       modal.style.display = "none";
       popup.style.display = "none";
+      if(googleConsent){
+        var gaScript = document.createElement('script');
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
+        gaScript.async = true;
+      }
     }
     var tabs = document.querySelectorAll(".cookiesjsr-service-group--tab");
     var contents = document.querySelectorAll(
