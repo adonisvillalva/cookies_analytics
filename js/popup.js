@@ -1,11 +1,12 @@
 (function ($) {
   $(document).ready(function () {
+    // Variables
+    var modal = document.querySelector(".modal-container");
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!Drupal.settings.cookies_analytics_consent) {
       // Modal -->
       //Código para controlar la configuración de cookies
       $("cookies_analytics_conf").click(function(){
-        var modal = document.querySelector(".modal-container");
         modal.style.display = "block";
       });
       var closeButton = document.querySelector(".cookiesjsr-layer--close");
