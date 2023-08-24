@@ -25,7 +25,7 @@
       // Agrega efecto Fade in
       $("#cookie_analytics_popup").fadeIn();
       // Captura el clic Aceptar
-      $("#cookie_analytics_aceptar_btn").click(function () {
+      $("#cookie_analytics_rechazar_btn").click(function () {
         // Al aceptar, se oculta la ventana emergente
         $("#cookie_analytics_popup").fadeOut();
         popup.style.display = "none";

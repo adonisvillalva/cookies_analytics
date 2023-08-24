@@ -38,7 +38,7 @@
                     '</div>' .
                     '<div class="cookiesjsr-banner--action">' .
                       '<button id="cookies_analytics_conf"class="cookiesjsr-btn cookiesjsr-settings">CONFIGURACIÓN DE COOKIES</button>' .
-                      '<button class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
+                      '<button id="cookie_analytics_rechazar_btn" class="cookiesjsr-btn important denyAll">DENEGAR TODO</button>' .
                       '<button id="cookie_analytics_aceptar_btn" class="cookiesjsr-btn important allowAll">ACEPTAR TODO</button>' .
                     '</div>' .
                   '</div>' .
