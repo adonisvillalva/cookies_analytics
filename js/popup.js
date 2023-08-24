@@ -6,7 +6,7 @@
     if (!Drupal.settings.cookies_analytics_consent) {
       // Modal -->
       //Código para controlar la configuración de cookies
-      $("cookies_analytics_conf").click(function(){
+      $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
       });
       var closeButton = document.querySelector(".cookiesjsr-layer--close");
