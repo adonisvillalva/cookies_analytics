@@ -6,7 +6,7 @@
     var closeButton = document.querySelector(".cookiesjsr-layer--close");
 
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
-    if (Drupal.settings.cookies_analytics_consent) {
+    if (!Drupal.settings.cookies_analytics_consent) {
       // Modal -->
       //Código para controlar la configuración de cookies
       modal.style.display = "none";
@@ -28,6 +28,8 @@
       $("#cookie_analytics_aceptar_btn").click(function () {
         // Al aceptar, se oculta la ventana emergente
         $("#cookie_analytics_popup").fadeOut();
+        popup.style.display = "none";
+        modal.style.display = "none";
         // Realiza una llamada Ajax para almacenar el consentimiento.
         $.ajax({
           url: "/cookies-analytics/aceptar",
