@@ -160,6 +160,7 @@
 @media (min-width: 768px) {
   .cookiesjsr-layer {
     width: 860px;
+    height: 65vh;
   }
 }
 
@@ -174,7 +175,6 @@
 .cookiesjsr-layer--header {
   align-items: center;
   background: var(--layer-header-bg-color, #fff);
-  border-bottom: 1px solid var(--layer-border-color, #e4e5e6);
   display: flex;
   height: 3.5em;
   justify-content: space-between;

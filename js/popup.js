@@ -8,6 +8,8 @@
     var closeButton       = document.querySelector(".cookiesjsr-layer--close");
     var googleAnalyticsID = 'G-YVRL8S5KS5';
     var googleTrack       = localStorage.getItem('googleConsent');
+    var btnGoogle         = document.getElementById('switch-google');
+    var checkboxGoogle    = document.getElementById('checkbox-google');
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
       // Modal -->
@@ -25,6 +27,15 @@
         }
       };
       // <-- Modal
+      checkboxGoogle.checked = true;
+      btnGoogle.classList.add('active');
+      checkboxGoogle.addEventListener('change', function(){
+        if(checkboxGoogle.checked){
+          btnGoogle.classList.add('active');
+        }else{
+          btnGoogle.classList.remove('active');
+        }
+      });
       // Agrega efecto Fade in
       $("#cookie_analytics_popup").fadeIn();
       // Captura el clic Aceptar
@@ -35,6 +46,7 @@
         modal.style.display = "none";
         localStorage.setItem('cookieConsent', 'true');
       });
+      $("")
       // Para aceptar el rastreo
       $("#cookie_analytics_aceptar_btn").click(function () {
         // Al aceptar, se oculta la ventana emergente
