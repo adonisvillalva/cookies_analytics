@@ -55,20 +55,21 @@
         modal.style.display = "none";
         localStorage.setItem('cookieConsent', 'true');
         // Google Analytics tracking code
+        if(checkboxGoogle.checked){
+          gaScript.type = 'text/javascript';
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
         
-        gaScript.type = 'text/javascript';
-        gaScript.async = true;
-        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
-      
-        gaScript.onload = function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', googleAnalyticsID);
-        };
-        document.head.appendChild(gaScript);
+          gaScript.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', googleAnalyticsID);
+          };
+          document.head.appendChild(gaScript);
+        }
         // End of Google Analytics tracking code
         localStorage.setItem('googleConsent', 'true');
       });
