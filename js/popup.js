@@ -18,6 +18,7 @@
       checkboxGoogle.checked = true;
       $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
+        btnGoogle.classList.add('active');
       });
       closeButton.onclick = function () {
         modal.style.display = "none";
