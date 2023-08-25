@@ -98,8 +98,7 @@
                                         'target="_blank" rel="noopener noreferrer">Política de Cookies</a></li>' .
                                   '</ul>' .
                                 '</div>' .
-                                '<div class="cookiesjsr-service--action"><label id="checkbox-google" class="cookiesjsr-switch active" title="Denegar"><input' .
-                                    'type="checkbox" id="switch-google" aria-describedby="desc_tracking"></label></div>' .
+                                '<div class="cookiesjsr-service--action"><label id="checkbox-google" class="cookiesjsr-switch active" title="Denegar"><input type="checkbox" id="switch-google" aria-describedby="desc_tracking"></label></div>' .
                               '</li>' .
                             '</ul>' .
                           '</div>' .
