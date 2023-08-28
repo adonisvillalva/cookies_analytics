@@ -27,7 +27,7 @@
       });
       allowCookiesBtn.addEventListener("click", allowCookiesAnalytics);
       denyCookiesBtn.addEventListener("click", denyCookiesAnalytics);
-      saveButton.addEventListener("click", closeModal);
+      // saveButton.addEventListener("click", closeModal);
       // Botones para el Modal
       closeButton.onclick = function () {
         modal.style.display = "none";
