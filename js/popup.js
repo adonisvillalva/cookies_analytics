@@ -7,7 +7,7 @@
     var modal             = document.querySelector(".modal-container");
     var closeButton       = document.querySelector(".cookiesjsr-layer--close");
     //Cambio tracking google analytics
-    var googleAnalyticsID = 'G-YVRL8S5KS5';
+    var googleAnalyticsID = 'DC-8877488';
     var googleTrack       = localStorage.getItem('googleConsent');
     var btnGoogle         = document.getElementById('switch-google');
     var checkboxGoogle    = document.getElementById('checkbox-google');
