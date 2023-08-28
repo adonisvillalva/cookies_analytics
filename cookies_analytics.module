@@ -110,9 +110,9 @@
                       '<div class="cookiesjsr-layer--label-all"></div>' .
                       '<div class="cookiesjsr-layer--actions">' .
                         '<!-- Botones de acciones para el modal -->' .
-                        '<button id="test" class="cookiesjsr-btn invert denyAll">DENEGAR TODO</button>' .
-                        '<button id="cookie_analytics_aceptar_btn" class="cookiesjsr-btn invert allowAll">ACEPTAR TODO</button>' .
-                        '<button id="cookie_analytics_save_btn" class="cookiesjsr-btn invert important save dialog-last-tab">' .
+                        '<button class="cookiesjsr-btn invert denyAll-btn-cookie">DENEGAR TODO</button>' .
+                        '<button class="cookiesjsr-btn invert allowAll-btn-cookie">ACEPTAR TODO</button>' .
+                        '<button class="cookiesjsr-btn invert important save-btn-cookie dialog-last-tab">' .
                           'Guardar' .
                         '</button>' .
                       '</div>' .
