@@ -12,6 +12,7 @@
     var checkboxGoogle    = document.getElementById('checkbox-google');
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
+      popup.style.display = "flex";
       // Modal -->
       //Código para controlar la configuración de cookies
       checkboxGoogle.checked = true;

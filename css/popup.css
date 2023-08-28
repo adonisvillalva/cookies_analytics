@@ -12,7 +12,7 @@
   font-size: var(--font-size-reset, 1rem);
   font-family: "Roboto Condensed", sans-serif;
   z-index: 10000;
-  display: flex;
+  display: none;
   justify-content: space-between;
   transition: transform 0.3s ease-in-out;
   box-sizing: border-box;
