@@ -36,9 +36,9 @@
           modal.style.display = "none";
         }
       };
-      saveButton.onclick(function () {
+      saveButton.onclick = function () {
         modal.style.display = "none";
-      });
+      };
       // <-- Modal
       checkboxGoogle.addEventListener('change', function(){
         if(checkboxGoogle.checked){
