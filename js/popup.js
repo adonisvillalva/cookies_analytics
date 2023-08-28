@@ -10,10 +10,11 @@
     var googleTrack       = localStorage.getItem('googleConsent');
     var btnGoogle         = document.getElementById('switch-google');
     var checkboxGoogle    = document.getElementById('checkbox-google');
-    var saveButton        = document.getElementById("cookie_analytics_save_btn");
+    var saveButton        = document.querySelector(".save-btn-cookie");
     var allowCookiesBtn   = document.getElementById("cookie_analytics_aceptar_btn");
     var denyCookiesBtn    = document.getElementById("cookie_analytics_rechazar_btn");
     var denyModalBtn      = document.querySelector(".denyAll-btn-cookie");
+    var allowModalBtn      = document.querySelector(".allowAll-btn-cookie");
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
       // Se agrega todos los estilos y diseño que se inicia al visitar el sitio web
@@ -30,15 +31,21 @@
       denyCookiesBtn.addEventListener("click", denyCookiesAnalytics);
       // saveButton.addEventListener("click", closeModal);
       // Botones para el Modal
+      allowModalBtn.onclick = function () {
+        allowCookiesAnalytics();
+      };
       denyModalBtn.onclick = function () {
         denyCookiesAnalytics();
       };
+      saveButton.onclick = function () {
+        closeModal();
+      };
       closeButton.onclick = function () {
-        modal.style.display = "none";
+        closeModal();
       };
       window.onclick = function (event) {
         if (event.target === modal) {
-          modal.style.display = "none";
+          closeModal();
         }
       };
       // <-- Modal
