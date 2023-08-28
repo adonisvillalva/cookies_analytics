@@ -36,7 +36,7 @@
           modal.style.display = "none";
         }
       };
-      saveButton.click(function () {
+      saveButton.onclick(function () {
         modal.style.display = "none";
       });
       // <-- Modal
