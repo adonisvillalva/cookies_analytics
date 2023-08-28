@@ -6,6 +6,7 @@
     var popup             = document.querySelector("#cookie_analytics_popup");
     var modal             = document.querySelector(".modal-container");
     var closeButton       = document.querySelector(".cookiesjsr-layer--close");
+    //Cambio tracking google analytics
     var googleAnalyticsID = 'G-YVRL8S5KS5';
     var googleTrack       = localStorage.getItem('googleConsent');
     var btnGoogle         = document.getElementById('switch-google');
