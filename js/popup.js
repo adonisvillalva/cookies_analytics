@@ -10,16 +10,23 @@
     var googleTrack       = localStorage.getItem('googleConsent');
     var btnGoogle         = document.getElementById('switch-google');
     var checkboxGoogle    = document.getElementById('checkbox-google');
+    var saveButton        = document.querySelector(".cookiesjsr-btn invert important save dialog-last-tab");
+    var denyButton        = document.querySelector(".cookiesjsr-btn invert denyAll");
+    var allowButton       = document.querySelector(".cookiesjsr-btn invert allowAll");
+    var allowCookiesBtn   = document.getElementById("cookie_analytics_aceptar_btn");
     // Muestra la ventana emergente si el usuario no ha dado su consentimiento.
     if (!cookieLocal) {
+      // Se agrega todos los estilos y diseño que se inicia al visitar el sitio web
+      $("#cookie_analytics_popup").fadeIn();
       popup.style.display = "flex";
+      checkboxGoogle.checked = true;
       // Modal -->
       //Código para controlar la configuración de cookies
-      checkboxGoogle.checked = true;
       $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
         btnGoogle.classList.add('active');
       });
+      // Botones para el Modal
       closeButton.onclick = function () {
         modal.style.display = "none";
       };
@@ -28,8 +35,15 @@
           modal.style.display = "none";
         }
       };
-      $("#cookie_analytics_save_btn").click(function () {
+      saveButton.click(function () {
         modal.style.display = "none";
+      });
+      denyButton.click(function () {
+        // Al aceptar, se oculta la ventana emergente
+        $("#cookie_analytics_popup").fadeOut();
+        popup.style.display = "none";
+        modal.style.display = "none";
+        localStorage.setItem('cookieConsent', 'true');
       });
       // <-- Modal
       checkboxGoogle.addEventListener('change', function(){
@@ -39,31 +53,16 @@
           btnGoogle.classList.remove('active');
         }
       });
-      // Agrega efecto Fade in
-      $("#cookie_analytics_popup").fadeIn();
+      
       // Captura el clic Aceptar
-      $("#cookie_analytics_rechazar_btn").click(function () {
-        // Al aceptar, se oculta la ventana emergente
-        $("#cookie_analytics_popup").fadeOut();
-        popup.style.display = "none";
-        modal.style.display = "none";
-        localStorage.setItem('cookieConsent', 'true');
-      });
+      
       $("#cookie_analytics_rechazar_btn").click(function (){
         $("#cookie_analytics_popup").fadeOut();
         popup.style.display = "none";
         modal.style.display = "none";
         localStorage.setItem('googleConsent', 'true');
       });
-      $("#cookie_analytics_rechazar_btn").click(function (){
-        $("#cookie_analytics_popup").fadeOut();
-        popup.style.display = "none";
-        modal.style.display = "none";
-        localStorage.setItem('googleConsent', 'true');
-      });
-      // Para aceptar el rastreo
-      $("#cookie_analytics_aceptar_btn").click(function () {
-        // Al aceptar, se oculta la ventana emergente
+      function aceptCookiesAnalytics(){
         $("#cookie_analytics_popup").fadeOut();
         popup.style.display = "none";
         modal.style.display = "none";
@@ -86,7 +85,9 @@
         }
         // End of Google Analytics tracking code
         localStorage.setItem('googleConsent', 'true');
-      });
+      }
+      // Para aceptar el rastreo
+      allowCookiesBtn.addEventListener("click", aceptCookiesAnalytics);
       
     }else{
       modal.style.display = "none";
