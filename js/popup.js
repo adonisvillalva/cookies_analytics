@@ -14,7 +14,6 @@
     if (!cookieLocal) {
       // Modal -->
       //Código para controlar la configuración de cookies
-      modal.style.display = "none";
       checkboxGoogle.checked = true;
       $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
