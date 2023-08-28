@@ -27,6 +27,7 @@
       });
       allowCookiesBtn.addEventListener("click", allowCookiesAnalytics);
       denyCookiesBtn.addEventListener("click", denyCookiesAnalytics);
+      saveButton.addEventListener("click", closeModal);
       // Botones para el Modal
       closeButton.onclick = function () {
         modal.style.display = "none";
@@ -35,9 +36,6 @@
         if (event.target === modal) {
           modal.style.display = "none";
         }
-      };
-      saveButton.onclick = function () {
-        modal.style.display = "none";
       };
       // <-- Modal
       checkboxGoogle.addEventListener('change', function(){
@@ -65,6 +63,9 @@
         };
         document.head.appendChild(gaScript);
       }
+    }
+    function closeModal(){
+      modal.style.display = "none";
     }
     function denyCookiesAnalytics(){
       $("#cookie_analytics_popup").fadeOut();
