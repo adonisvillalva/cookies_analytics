@@ -26,6 +26,7 @@
         modal.style.display = "block";
         btnGoogle.classList.add('active');
       });
+      allowCookiesBtn.addEventListener("click", aceptCookiesAnalytics);
       // Botones para el Modal
       closeButton.onclick = function () {
         modal.style.display = "none";
@@ -62,33 +63,6 @@
         modal.style.display = "none";
         localStorage.setItem('googleConsent', 'true');
       });
-      function aceptCookiesAnalytics(){
-        $("#cookie_analytics_popup").fadeOut();
-        popup.style.display = "none";
-        modal.style.display = "none";
-        localStorage.setItem('cookieConsent', 'true');
-        // Google Analytics tracking code
-        if(checkboxGoogle.checked){
-          gaScript.type = 'text/javascript';
-          gaScript.async = true;
-          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
-        
-          gaScript.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', googleAnalyticsID);
-          };
-          document.head.appendChild(gaScript);
-        }
-        // End of Google Analytics tracking code
-        localStorage.setItem('googleConsent', 'true');
-      }
-      // Para aceptar el rastreo
-      allowCookiesBtn.addEventListener("click", aceptCookiesAnalytics);
-      
     }else{
       modal.style.display = "none";
       popup.style.display = "none";
@@ -107,6 +81,30 @@
         };
         document.head.appendChild(gaScript);
       }
+    }
+    function aceptCookiesAnalytics(){
+      $("#cookie_analytics_popup").fadeOut();
+      popup.style.display = "none";
+      modal.style.display = "none";
+      localStorage.setItem('cookieConsent', 'true');
+      // Google Analytics tracking code
+      if(checkboxGoogle.checked){
+        gaScript.type = 'text/javascript';
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAnalyticsID;
+      
+        gaScript.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', googleAnalyticsID);
+        };
+        document.head.appendChild(gaScript);
+      }
+      // End of Google Analytics tracking code
+      localStorage.setItem('googleConsent', 'true');
     }
     var tabs = document.querySelectorAll(".cookiesjsr-service-group--tab");
     var contents = document.querySelectorAll(
