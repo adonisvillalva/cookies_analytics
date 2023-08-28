@@ -28,6 +28,9 @@
           modal.style.display = "none";
         }
       };
+      $("#cookie_analytics_save_btn").click(function () {
+        modal.style.display = "none";
+      });
       // <-- Modal
       checkboxGoogle.addEventListener('change', function(){
         if(checkboxGoogle.checked){
@@ -46,7 +49,18 @@
         modal.style.display = "none";
         localStorage.setItem('cookieConsent', 'true');
       });
-      $("")
+      $("#cookie_analytics_rechazar_btn").click(function (){
+        $("#cookie_analytics_popup").fadeOut();
+        popup.style.display = "none";
+        modal.style.display = "none";
+        localStorage.setItem('googleConsent', 'true');
+      });
+      $("#cookie_analytics_rechazar_btn").click(function (){
+        $("#cookie_analytics_popup").fadeOut();
+        popup.style.display = "none";
+        modal.style.display = "none";
+        localStorage.setItem('googleConsent', 'true');
+      });
       // Para aceptar el rastreo
       $("#cookie_analytics_aceptar_btn").click(function () {
         // Al aceptar, se oculta la ventana emergente
