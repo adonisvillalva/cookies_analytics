@@ -27,6 +27,7 @@
       $("#cookies_analytics_conf").click(function(){
         modal.style.display = "block";
         btnGoogle.classList.add('active');
+	checkboxGoogle.classList.add('active');
       });
       allowCookiesBtn.addEventListener("click", allowCookiesAnalytics);
       denyCookiesBtn.addEventListener("click", denyCookiesAnalytics);
